@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <title>Leaflet Side-by-side</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="leaflet-side-by-side.js"></script> -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet-side-by-side@2.2.0/leaflet-side-by-side.css"
+    /> -->
+
+    <!-- <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="range.css" /> -->
+
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Esri Leaflet -->
+    <!-- <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script> -->
+
+    <!-- Side-by-Side Plugin -->
+    <script src="leaflet-side-by-side.js"></script>
+
+    <script>
+      const map = L.map("map", {
+        center: [38.802, -77.1019],
+        zoom: 9,
+      });
+
+      const rightLayer = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+          "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19, attribution: "© Esri" },
+      );
+
+      const leftLayer = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19, attribution: "© Esri" },
+      );
+
+      rightLayer.addTo(map);
+      leftLayer.addTo(map);
+
+      console.log("L:", L.control.sideBySide);
+
+      const sbs = L.control.sideBySide(leftLayer, rightLayer).addTo(map);
+    </script>
+  </body>
+</html>
