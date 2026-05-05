@@ -47,17 +47,8 @@
     <script>
       const map = L.map("map", {
         center: [38.802, -77.1019],
-        zoom: 10,
+        zoom: 9,
       });
-
-      // basemap layer
-      // L.tileLayer(
-      //   "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-      //   {
-      //     maxZoom: 19,
-      //     attribution: "&copy; OpenStreetMap contributors © CARTO",
-      //   },
-      // ).addTo(map);
 
       // light gray base layer
       var lightGrayBase = L.tileLayer(
@@ -90,17 +81,6 @@
           },
         )
         .addTo(map);
-
-      // const rightLayer = L.tileLayer(
-      //   "https://server.arcgisonline.com/ArcGIS/rest/services/" +
-      //     "World_Imagery/MapServer/tile/{z}/{y}/{x}",
-      //   { maxZoom: 19, attribution: "© Esri" },
-      // );
-
-      // const leftLayer = L.tileLayer(
-      //   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-      //   { maxZoom: 19, attribution: "© Esri" },
-      // );
 
       const leftLayer = L.tileLayer.wms(
         "https://mdhephtgis.cgis.us/arcgis/services/EPHT/EJ_CVS_Test/MapServer/WMSServer",
