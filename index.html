@@ -7,21 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <title>Leaflet Side-by-side</title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script src="leaflet-side-by-side.js"></script> -->
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
     />
-
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/leaflet-side-by-side@2.2.0/leaflet-side-by-side.css"
-    /> -->
-
-    <!-- <link rel="stylesheet" href="layout.css" />
-    <link rel="stylesheet" href="range.css" /> -->
 
     <style>
       html,
@@ -106,16 +96,8 @@
         },
       );
 
-      // const leftLayer = L.esri.dynamicMapLayer({
-      //   url: "https://mdhephtgis.cgis.us/arcgis/rest/services/EPHT/LeadCounty/MapServer",
-      //   layers: [1],
-      //   opacity: 0.8,
-      // });
-
       leftLayer.addTo(map);
       rightLayer.addTo(map);
-
-      // console.log("L:", L.control.sideBySide);
 
       const sbs = L.control.sideBySide(leftLayer, rightLayer).addTo(map);
     </script>
